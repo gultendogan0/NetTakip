@@ -10,7 +10,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-class RepositoryModule {
+object RepositoryModule {
     @Provides
     fun provideNetRepository(
         dbDao: NetDao
