@@ -1,7 +1,7 @@
 package com.gultendogan.nettakip.domain.decider
 
 import com.gultendogan.nettakip.R
-import com.gultendogan.nettakip.domain.mapper.DEFAULT_VALUE_OF_WEIGHT_DIFFERENCE
+import com.gultendogan.nettakip.domain.mapper.DEFAULT_VALUE_OF_NET_DIFFERENCE
 import com.gultendogan.nettakip.utils.extensions.format
 import com.gultendogan.nettakip.utils.extensions.orZero
 import java.lang.StringBuilder
@@ -31,7 +31,7 @@ class DifferenceDecider @Inject constructor(){
 
     fun provideValue(current: Float?, previous: Float?): Float {
         return if (previous.orZero() == 0.0f) {
-            DEFAULT_VALUE_OF_WEIGHT_DIFFERENCE
+            DEFAULT_VALUE_OF_NET_DIFFERENCE
         } else {
             current.orZero() - previous.orZero()
         }
