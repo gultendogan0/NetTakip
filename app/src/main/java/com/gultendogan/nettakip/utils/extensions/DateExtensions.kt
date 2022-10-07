@@ -24,3 +24,16 @@ fun Date.endOfDay(): Date {
     calendar.set(Calendar.SECOND, 59)
     return calendar.time
 }
+
+fun Date.prevDay(): Date {
+    val cal = Calendar.getInstance();
+    cal.time = this
+    cal.add(Calendar.DATE, -1);
+    return cal.time
+}
+fun Date.nextDay(): Date {
+    val cal = Calendar.getInstance();
+    cal.time = this
+    cal.add(Calendar.DATE, 1);
+    return cal.time
+}

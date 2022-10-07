@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_splash">
+
+    <fragment
+        android:id="@+id/navigation_splash"
+        android:name="com.gultendogan.nettakip.ui.splash.SplashFragment"
+        android:label="@string/title_splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_navigate_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mobile_navigation"
+            app:popUpToInclusive="true"
+            app:destination="@id/navigation_home"/>
+
+        <action
+            android:id="@+id/action_navigate_on_boarding"
+            app:destination="@id/navigation_on_boarding"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_on_boarding"
+        android:name="com.gultendogan.nettakip.ui.onboarding.OnBoardingFragment"
+        android:label="@string/title_on_boarding"
+        tools:layout="@layout/fragment_on_boarding">
+
+        <action
+            android:id="@+id/action_navigate_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mobile_navigation"
+            app:popUpToInclusive="true"
+            app:destination="@id/navigation_home"/>
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.gultendogan.nettakip.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigate_add"
+            app:destination="@id/navigation_add" />
+        <action
+            android:id="@+id/action_navigate_history"
+            app:destination="@id/navigation_history" />
+        <action
+            android:id="@+id/action_navigate_settings"
+            app:destination="@id/navigation_settings" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.gultendogan.nettakip.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+            tools:layout="@layout/fragment_settings" />
+
+    <dialog
+        android:id="@+id/navigation_history"
+        android:name="com.gultendogan.nettakip.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history">
+
+        <action
+            android:id="@+id/action_navigate_add"
+            app:destination="@id/navigation_add" />
+    </dialog>
+
+
+    <dialog
+        android:id="@+id/navigation_add"
+        android:name="com.gultendogan.nettakip.ui.add.AddFragment"
+        android:label="@string/title_add_net"
+        tools:layout="@layout/fragment_add" >
+        <argument
+            android:name="net"
+            app:argType="com.gultendogan.nettakip.domain.uimodel.NetUIModel"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_navigate_emoji"
+            app:destination="@id/navigation_emoji"/>
+
+    </dialog>
+
+    <dialog
+        android:id="@+id/navigation_emoji"
+        android:name="com.gultendogan.nettakip.ui.emoji.EmojiFragment"
+        android:label="@string/title_emoji"
+        tools:layout="@layout/fragment_emoji" />
+
+</navigation>

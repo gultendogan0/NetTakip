@@ -4,8 +4,29 @@
     <string name="tyt_format" translatable="false">%1$s tyt</string>
     <string name="ayt_format" translatable="false">%1$s ayt</string>
 
-    <string name="goal_summary_format">%.1f %s left until you reach the goal</string>
+    <string name="goal_summary_format">Hedefe ulaşmanıza %.1f %s kaldı</string>
 
     <string name="tyt" translatable="false">tyt</string>
     <string name="ayt" translatable="false">ayt</string>
+
+    <string name="select_date">Tarih seç</string>
+    <string name="prev_day">Öncesi</string>
+    <string name="next_day">Sonrası</string>
+    <string name="input_net">Net gir</string>
+    <string name="input_note">Not gir</string>
+    <string name="select_emoji">Emoji seç</string>
+    <string name="save">Kaydet</string>
+    <string name="delete">Sil</string>
+
+    <string name="title_splash">Splash</string>
+    <string name="title_on_boarding">On Boarding</string>
+    <string name="title_home">Net</string>
+    <string name="title_settings">Ayarlar</string>
+    <string name="title_history">Tarih</string>
+    <string name="title_add_net">Net Ekle</string>
+    <string name="title_emoji">Emoji</string>
+
+    <string name="select_emoji_with_emoji_format">%1$s Select emoji</string>
+    <string name="update">Güncelle</string>
+    <string name="alert_blank_net">Lütfen netinizi girdiğinizden emin olun</string>
 </resources>
