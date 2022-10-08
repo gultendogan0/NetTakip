@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <com.yonder.statelayout.StateLayoutView
+        android:id="@+id/stateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/gray_50"
+        android:padding="@dimen/space_8"
+        app:textEmpty="@string/title_no_net"
+        tools:context=".ui.home.HomeFragment">
+
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space_8"
+            android:layout_marginStart="@dimen/space_4"
+            android:text="@string/your_progress"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintBottom_toTopOf="@+id/cvOutline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_4"
+            app:checkedButton="@+id/btnLineChart"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProgress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvProgress"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/btnLineChart"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/line_chart"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnBarChart"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar_chart"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvOutline"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:cardElevation="0dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toTopOf="@+id/cvSummary"
+            app:layout_constraintDimensionRatio="16:12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvProgress">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/space_8">
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvSummary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/purple_200_tra"
+            app:cardElevation="0dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="@dimen/space_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvOutline">
+
+            <TextView
+                android:id="@+id/tvGoalDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                tools:text="Hedefine ulaşmana 10 kilo kaldı">
+
+            </TextView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space_8"
+            android:layout_marginStart="@dimen/space_4"
+            android:text="@string/summary"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintBottom_toTopOf="@+id/llContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvSummary" />
+
+        <LinearLayout
+            android:id="@+id/llContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSummary">
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/icStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+
+            </com.gultendogan.nettakip.uicomponents.InfoCardView>
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/icCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true" />
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/icGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+
+            </com.gultendogan.nettakip.uicomponents.InfoCardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_insight_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llContainer">
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/infoCardMax"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+            </com.gultendogan.nettakip.uicomponents.InfoCardView>
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/infoCardAverage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+            </com.gultendogan.nettakip.uicomponents.InfoCardView>
+
+            <com.gultendogan.nettakip.uicomponents.InfoCardView
+                android:id="@+id/infoCardMin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+            </com.gultendogan.nettakip.uicomponents.InfoCardView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space_8"
+            android:layout_marginStart="@dimen/space_4"
+
+            android:layout_marginBottom="8dp"
+            android:text="@string/history"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintBottom_toTopOf="@+id/rvWeightHistory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_insight_view" />
+
+        <Button
+            android:id="@+id/btnSeeAllHistory"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space_8"
+            android:layout_marginEnd="@dimen/space_8"
+            android:gravity="end|center"
+            android:text="@string/see_all"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/purple_500"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHistory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvHistory">
+        </Button>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHistory">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNetHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/space_4"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_net_history" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </com.yonder.statelayout.StateLayoutView>
+
+</androidx.core.widget.NestedScrollView>

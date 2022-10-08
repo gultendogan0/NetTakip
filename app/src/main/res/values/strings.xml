@@ -34,4 +34,22 @@
 
     <string name="history">Tarih</string>
 
+    <string name="title_no_net">Sağ üstteki artı düğmesinden net ekleyin</string>
+    <string name="your_progress">İlerlemen</string>
+    <string name="line_chart">Line</string>
+    <string name="bar_chart">Bar</string>
+    <string name="summary">Özet</string>
+    <string name="see_all"><u>Hepsini Gör</u></string>
+
+    <string name="title_min_net">Minimum</string>
+    <string name="title_max_net">Maksimum</string>
+    <string name="title_average_net">Ortalama</string>
+    <string name="goal_net">Hedef Net</string>
+    <string name="start">Başlangıç</string>
+    <string name="goal">Hedef</string>
+    <string name="current">Şu an</string>
+
+    <string name="add_net">Net Ekle</string>
+    <string name="settings">Ayarlar</string>
+
 </resources>
