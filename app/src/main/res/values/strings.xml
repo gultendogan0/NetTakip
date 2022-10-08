@@ -52,4 +52,16 @@
     <string name="add_net">Net Ekle</string>
     <string name="settings">Ayarlar</string>
 
+    <string name="alert_current_net_must_different_with_goal_net">Mevcut netiniz hedef netinizden farklı olmalıdır 🥳 </string>
+    <string name="alert_net_bigger_than_zero">Netiniz sıfırdan büyük olmalı 🥳 </string>
+
+    <string name="enter_current_net">Mevcut netinizi girin</string>
+    <string name="enter_goal_net">Hedefi/istenen neti girin</string>
+
+    <string name="welcome_to_nettakip">Net Takip uygulamasına hoş geldiniz</string>
+    <string name="welcome_description">Selam 🥳 Başlamak için lütfen bilgilerinizi doldurun 🚀</string>
+
+    <string name="_continue">Devam Et</string>
+
+
 </resources>
