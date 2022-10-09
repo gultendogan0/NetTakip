@@ -109,14 +109,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 InfoCardUIModel(
                     title = uiState.maxNet,
                     description = R.string.title_max_net,
-                    titleTextColor = R.color.red
+                    titleTextColor = R.color.green
                 )
             )
             infoCardMin.render(
                 InfoCardUIModel(
                     title = uiState.minNet,
                     description = R.string.title_min_net,
-                    titleTextColor = R.color.green
+                    titleTextColor = R.color.red
                 )
             )
             icCurrent.render(

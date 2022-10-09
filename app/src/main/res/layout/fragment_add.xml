@@ -10,25 +10,31 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSelectDate"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/select_date"
+        android:textColor="@color/purple_200"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnPrev"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/prev_day"
+        android:textColor="@color/purple_200"
         android:textAllCaps="false"
+        android:background="@drawable/custom_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/next_day"
+        android:textColor="@color/purple_200"
         android:textAllCaps="false"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <com.google.android.material.textfield.TextInputLayout
@@ -43,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:background="@drawable/custom_edittext"
             android:maxLength="5" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -54,16 +61,19 @@
         app:layout_constraintTop_toBottomOf="@+id/tfInputNet">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tilInputNote"
+            android:background="@drawable/custom_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEmoji"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginTop="@dimen/space_8"
         android:text="@string/select_emoji"
+        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:background="@drawable/custom_button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfInputNote" />

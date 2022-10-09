@@ -13,9 +13,9 @@ class DifferenceDecider @Inject constructor() {
         return if (difference == 0.0f) {
             R.color.gray_500
         } else if (difference > 0.0f) {
-            R.color.red
-        } else {
             R.color.green
+        } else {
+            R.color.red
         }
     }
 
