@@ -1,7 +1,6 @@
 package com.gultendogan.nettakip.ui.add
 
 import android.os.Bundle
-import android.provider.SyncStateContract.Helpers.update
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +28,7 @@ const val CURRENT_DATE_FORMAT = "dd MMM yyyy"
 const val TAG_DATE_PICKER = "Tag_Date_Picker"
 
 @AndroidEntryPoint
-class AddFragment : BottomSheetDialogFragment(){
+class AddFragment : BottomSheetDialogFragment() {
     private val args: AddFragmentArgs by navArgs()
     private val viewModel: AddViewModel by viewModels()
     private var selectedDate = Date()
@@ -42,7 +41,6 @@ class AddFragment : BottomSheetDialogFragment(){
     ): View? = inflater.inflate(R.layout.fragment_add, container, false)
 
     private val binding by viewBinding(FragmentAddBinding::bind)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,6 +55,7 @@ class AddFragment : BottomSheetDialogFragment(){
         }
     }
 
+
     private fun initViews() = with(binding) {
 
         args.net?.date?.run(::fetchDate)
@@ -68,11 +67,9 @@ class AddFragment : BottomSheetDialogFragment(){
         btnNext.setOnClickListener {
             fetchDate(selectedDate.nextDay())
         }
-
         btnEmoji.setOnClickListener {
             findNavController().navigate(R.id.action_navigate_emoji)
         }
-
         btnDelete.setOnClickListener {
             viewModel.delete(date = selectedDate)
             findNavController().popBackStack()
@@ -81,7 +78,6 @@ class AddFragment : BottomSheetDialogFragment(){
         btnSelectDate.setOnClickListener {
             val calendar = Calendar.getInstance()
             val startFrom = calendar.timeInMillis
-
             val constraints = CalendarConstraints.Builder()
                 .setEnd(startFrom)
                 .setValidator(DateValidatorPointBackward.now())
@@ -93,17 +89,13 @@ class AddFragment : BottomSheetDialogFragment(){
                     .setCalendarConstraints(constraints)
                     .setSelection(selectedDate.time)
                     .build()
-
             datePicker.addOnPositiveButtonClickListener { timestamp ->
 
                 fetchDate(Date(timestamp))
             }
-
             datePicker.show(parentFragmentManager, TAG_DATE_PICKER);
         }
-
         btnSelectDate.text = selectedDate.toFormat(CURRENT_DATE_FORMAT)
-
         btnSaveOrUpdate.setOnClickListener {
             val net = tilInputNet.text.toString()
             val note = tilInputNote.text.toString()
@@ -121,12 +113,10 @@ class AddFragment : BottomSheetDialogFragment(){
         selectedDate = date
         binding.btnSelectDate.text = selectedDate.toFormat(CURRENT_DATE_FORMAT)
         viewModel.fetchDate(selectedDate)
-
         val shouldHideNextButton =
             selectedDate > Date() || selectedDate.toFormat(CURRENT_DATE_FORMAT) == Date().toFormat(
                 CURRENT_DATE_FORMAT
             )
-
         binding.btnNext.isGone = shouldHideNextButton
     }
 
@@ -143,7 +133,6 @@ class AddFragment : BottomSheetDialogFragment(){
                 }
             }
         }
-
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect(::setUIState)
         }
@@ -190,5 +179,6 @@ class AddFragment : BottomSheetDialogFragment(){
             setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
         }
     }
+
 
 }

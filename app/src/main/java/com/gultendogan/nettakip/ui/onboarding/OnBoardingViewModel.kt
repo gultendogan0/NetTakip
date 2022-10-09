@@ -5,8 +5,8 @@ import com.gultendogan.nettakip.utils.extensions.ZERO
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gultendogan.nettakip.R
-import com.orhanobut.hawk.Hawk
 import com.gultendogan.nettakip.domain.usecase.SaveOrUpdateNet
+import com.orhanobut.hawk.Hawk
 import com.gultendogan.nettakip.utils.Constants
 import com.gultendogan.nettakip.utils.extensions.EMPTY
 import com.gultendogan.nettakip.uicomponents.MeasureUnit
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
-    private val saveOrUpdateNet: SaveOrUpdateNet
+    private val saveOrUpdateNets: SaveOrUpdateNet
 ) : ViewModel() {
 
     sealed class Event {
@@ -51,7 +51,7 @@ class OnBoardingViewModel @Inject constructor(
             Hawk.put(Constants.Prefs.KEY_GOAL_NET_UNIT, MeasureUnit.findValue(unit.value).value)
             Hawk.put(Constants.Prefs.KEY_GOAL_NET_DATE, Date().time)
             Hawk.put(Constants.Prefs.KEY_SHOULD_SHOW_ON_BOARDING, false)
-            saveOrUpdateNet.invoke("$currentNet", String.EMPTY, String.EMPTY, Date())
+            saveOrUpdateNets.invoke("$currentNet", String.EMPTY, String.EMPTY, Date())
             eventChannel.send(Event.NavigateToHome)
         }
     }

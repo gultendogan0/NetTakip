@@ -1,12 +1,12 @@
 package com.gultendogan.nettakip.domain.usecase
 
 import android.content.Context
-import com.orhanobut.hawk.Hawk
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.data.local.NetDao
 import com.gultendogan.nettakip.uicomponents.MeasureUnit
 import com.gultendogan.nettakip.utils.Constants
 import com.gultendogan.nettakip.utils.extensions.orZero
+import com.orhanobut.hawk.Hawk
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import kotlin.math.abs

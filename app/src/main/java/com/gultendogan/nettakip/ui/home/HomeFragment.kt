@@ -8,20 +8,21 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.gultendogan.nettakip.ui.home.chart.ChartFeeder
-import com.gultendogan.nettakip.ui.home.chart.ChartInitializer
-import com.gultendogan.nettakip.ui.home.chart.ChartType
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.databinding.FragmentHomeBinding
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
 import com.gultendogan.nettakip.ui.home.adapter.NetHistoryAdapter
 import com.gultendogan.nettakip.ui.home.adapter.NetItemDecorator
-import com.gultendogan.nettakip.utils.viewBinding
+import com.gultendogan.nettakip.ui.home.chart.ChartFeeder
+import com.gultendogan.nettakip.ui.home.chart.ChartInitializer
+import com.gultendogan.nettakip.ui.home.chart.ChartType
+import com.gultendogan.nettakip.ui.home.chart.LimitLineFeeder
+import com.gultendogan.nettakip.ui.home.HomeViewModel
 import com.gultendogan.nettakip.uicomponents.InfoCardUIModel
 import com.gultendogan.nettakip.utils.Constants
+import com.gultendogan.nettakip.utils.viewBinding
 import com.orhanobut.hawk.Hawk
 import com.yonder.statelayout.State
-import com.gultendogan.nettakip.ui.home.chart.LimitLineFeeder
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -30,7 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
     private val adapterNetHistory: NetHistoryAdapter by lazy {
-        NetHistoryAdapter(::onClickWeight)
+        NetHistoryAdapter(::onClickNet)
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -154,7 +155,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initViews() = with(binding) {
-        initWeightRecyclerview()
+        initNetRecyclerview()
         ChartInitializer.initLineChart(lineChart)
         ChartInitializer.initBarChart(barChart)
         btnSeeAllHistory.setOnClickListener {
@@ -177,7 +178,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             toggleButton.check(R.id.btnBarChart)
         }
     }
-    private fun initWeightRecyclerview() = with(binding.rvNetHistory) {
+    private fun initNetRecyclerview() = with(binding.rvNetHistory) {
         adapter = adapterNetHistory
         addItemDecoration(NetItemDecorator(requireContext()))
         addItemDecoration(
@@ -187,7 +188,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             )
         )
     }
-    private fun onClickWeight(net: NetUIModel) {
+    private fun onClickNet(net: NetUIModel) {
         findNavController().navigate(HomeFragmentDirections.actionNavigateAdd(net))
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -199,6 +200,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 findNavController().navigate(HomeFragmentDirections.actionNavigateAdd(null))
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

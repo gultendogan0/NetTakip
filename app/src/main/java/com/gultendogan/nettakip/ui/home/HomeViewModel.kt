@@ -3,23 +3,23 @@ package com.gultendogan.nettakip.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.mikephil.charting.data.BarEntry
-import com.orhanobut.hawk.Hawk
 import com.gultendogan.nettakip.data.local.NetDao
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
+import com.gultendogan.nettakip.domain.usecase.GetAllNets
+import com.gultendogan.nettakip.domain.usecase.GetUserGoal
+import com.gultendogan.nettakip.ui.home.chart.ChartType
+import com.orhanobut.hawk.Hawk
 import com.gultendogan.nettakip.utils.Constants
 import com.gultendogan.nettakip.utils.extensions.orZero
-import com.gultendogan.nettakip.ui.home.chart.ChartType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import com.gultendogan.nettakip.domain.usecase.GetUserGoal
-import com.gultendogan.nettakip.domain.usecase.GetAllNets
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private var getAllNets: GetAllNets ,
+    private var getAllNets: GetAllNets,
     private val netDao: NetDao,
     private val getUserGoal: GetUserGoal
 ) : ViewModel() {
@@ -55,9 +55,9 @@ class HomeViewModel @Inject constructor(
                     currentNet = "${netHistories.lastOrNull()?.formattedValue}",
                     reversedHistories = netHistories.asReversed().take(NET_LIMIT_FOR_HOME),
                     shouldShowAllNetButton = netHistories.size > NET_LIMIT_FOR_HOME,
-                    barEntries = netHistories.mapIndexed { index, weight ->
-                        BarEntry(index.toFloat(), weight?.value.orZero())
-                    },
+                    barEntries = netHistories.mapIndexed { index, net ->
+                        BarEntry(index.toFloat(), net?.value.orZero())
+                        },
                     userGoal = getUserGoal(),
                     shouldShowLimitLine = Hawk.get(Constants.Prefs.KEY_CHART_LIMIT_LINE,true),
                     chartType =  ChartType.findValue(Hawk.get(Constants.Prefs.KEY_CHART_TYPE, 0)),

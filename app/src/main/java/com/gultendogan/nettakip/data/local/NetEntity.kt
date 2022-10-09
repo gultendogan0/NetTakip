@@ -6,10 +6,11 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "net")
-data class NetEntity (
+data class NetEntity(
+    //@PrimaryKey val uid: Int,
     @PrimaryKey(autoGenerate = true) val uid: Int = 0,
-    @ColumnInfo(name = "timestamp") val timestamp: Date?,
-    @ColumnInfo(name = "value") val value: Float?,
-    @ColumnInfo(name="emoji") val emoji:String?,
-    @ColumnInfo(name="note") val note:String
+    @ColumnInfo(name="timestamp") val timestamp: Date?,
+    @ColumnInfo(name="value") val value: Float?,
+    @ColumnInfo(name="emoji") val emoji: String?,
+    @ColumnInfo(name="note") val note: String?
 )

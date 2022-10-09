@@ -13,6 +13,7 @@ import com.gultendogan.nettakip.utils.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import com.gultendogan.nettakip.uicomponents.MeasureUnit
 import android.widget.Toast
+import com.gultendogan.nettakip.ui.onboarding.OnBoardingViewModel
 
 @AndroidEntryPoint
 class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
@@ -67,7 +68,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
                 return@addOnButtonCheckedListener
             if (checkedId == R.id.button1) {
                 cardRulerCurrent.setUnit(MeasureUnit.TYT)
-                cardRulerGoal.setUnit(MeasureUnit.TYT)
+                cardRulerGoal.setUnit(MeasureUnit.AYT)
             } else {
                 cardRulerCurrent.setUnit(MeasureUnit.AYT)
                 cardRulerGoal.setUnit(MeasureUnit.AYT)

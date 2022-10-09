@@ -7,7 +7,7 @@ import com.gultendogan.nettakip.utils.extensions.orZero
 import java.lang.StringBuilder
 import javax.inject.Inject
 
-class DifferenceDecider @Inject constructor(){
+class DifferenceDecider @Inject constructor() {
 
     fun provideColor(difference: Float): Int {
         return if (difference == 0.0f) {

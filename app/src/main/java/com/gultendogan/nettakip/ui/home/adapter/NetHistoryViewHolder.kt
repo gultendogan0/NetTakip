@@ -12,7 +12,7 @@ const val DATE_FORMAT = "dd MMM yyyy"
 
 class NetHistoryViewHolder(
     view: View,
-    private val onClickWeight: ((weight: NetUIModel) -> Unit)?
+    private val onClickWeight: ((net: NetUIModel) -> Unit)?
 ) :
     RecyclerView.ViewHolder(view) {
     private val binding = ItemNetHistoryBinding.bind(view)

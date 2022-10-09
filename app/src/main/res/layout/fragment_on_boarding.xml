@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome_to_nettakip"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/black"
         android:textStyle="bold">

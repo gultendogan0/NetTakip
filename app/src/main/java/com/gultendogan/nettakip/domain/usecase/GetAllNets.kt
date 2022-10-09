@@ -11,13 +11,13 @@ class GetAllNets @Inject constructor(
     private val mapper: NetEntityMapper
 ) {
     operator fun invoke() = repository.getAllNets().map { netList ->
-        netList.mapIndexed { index, weightEntity ->
+        netList.mapIndexed { index, netEntity ->
             var previousEntity: NetEntity? = null
             val previousIndex = index + 1
             if (previousIndex < netList.size && previousIndex >= 0) {
                 previousEntity = netList[previousIndex]
             }
-            mapper.map(entity = weightEntity, previousEntity = previousEntity)
+            mapper.map(entity = netEntity, previousEntity = previousEntity)
         }.reversed()
     }
 }

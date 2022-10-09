@@ -14,7 +14,8 @@ import javax.inject.Singleton
 const val DATABASE_NAME="Net_ly"
 
 @[Module InstallIn(SingletonComponent::class)]
-object RoomModule {
+object RoomModule{
+
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {

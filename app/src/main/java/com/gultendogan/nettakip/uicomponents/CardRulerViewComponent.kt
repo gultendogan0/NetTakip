@@ -9,6 +9,7 @@ import com.google.android.material.card.MaterialCardView
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.databinding.ViewCardRulerBinding
 
+
 enum class MeasureUnit(var value: String) {
     TYT("tyt"),
     AYT("ayt");
@@ -16,9 +17,7 @@ enum class MeasureUnit(var value: String) {
         fun findValue(value: String?): MeasureUnit = values().find { it.value == value } ?: TYT
     }
 }
-
 const val FLOOR_FOR_AYT_TO_TYT = 1f
-
 class CardRulerViewComponent @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

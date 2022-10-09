@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.base.BaseListAdapter
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
+import com.gultendogan.nettakip.ui.home.adapter.NetHistoryViewHolder
 
-class NetHistoryAdapter(private val onClickWeight: ((weight: NetUIModel) -> Unit)?) :
+class NetHistoryAdapter(private val onClickWeight: ((net: NetUIModel) -> Unit)?) :
     BaseListAdapter<NetUIModel>(
         itemsSame = { old, new -> old.uid == new.uid },
         contentsSame = { old, new -> old == new }

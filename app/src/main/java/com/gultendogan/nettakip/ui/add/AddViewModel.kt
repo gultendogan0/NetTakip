@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.data.local.NetDao
-import com.gultendogan.nettakip.domain.usecase.DeleteNet
 import com.gultendogan.nettakip.domain.mapper.NetEntityMapper
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
+import com.gultendogan.nettakip.domain.usecase.DeleteNet
 import com.gultendogan.nettakip.domain.usecase.SaveOrUpdateNet
 import com.gultendogan.nettakip.utils.extensions.endOfDay
 import com.gultendogan.nettakip.utils.extensions.startOfDay
@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
+
 
 @HiltViewModel
 class AddViewModel @Inject constructor(

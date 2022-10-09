@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.databinding.FragmentSplashBinding
 import com.gultendogan.nettakip.utils.viewBinding
+import com.gultendogan.nettakip.ui.splash.SplashViewModel
+import com.gultendogan.nettakip.utils.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

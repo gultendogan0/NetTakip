@@ -1,11 +1,11 @@
 package com.gultendogan.nettakip.domain.mapper
 
 import com.gultendogan.nettakip.data.local.NetEntity
+import com.gultendogan.nettakip.domain.decider.DifferenceDecider
+import com.gultendogan.nettakip.domain.decider.UnitFormatDecider
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
 import com.gultendogan.nettakip.utils.extensions.orZero
 import com.gultendogan.nettakip.utils.extensions.toFormat
-import com.gultendogan.nettakip.domain.decider.DifferenceDecider
-import com.gultendogan.nettakip.domain.decider.UnitFormatDecider
 import java.util.*
 import javax.inject.Inject
 
@@ -17,10 +17,10 @@ class NetEntityMapper @Inject constructor(
     private val unitFormatDecider: UnitFormatDecider,
     private val differenceDecider: DifferenceDecider
 ) {
+
     fun map(entity: NetEntity?, previousEntity: NetEntity? = null): NetUIModel? {
         if (entity == null)
             return null
-
         val date = entity.timestamp ?: Date()
         val valueText =  entity.value?.toString().orEmpty()
         val emoji = entity.emoji.orEmpty()

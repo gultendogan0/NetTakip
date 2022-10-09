@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.gultendogan.nettakip.R
+import com.gultendogan.nettakip.ui.home.adapter.NetHistoryViewHolder
 import com.gultendogan.nettakip.utils.extensions.dpToPx
 
 private const val ITEM_VERTICAL_MARGIN = 16

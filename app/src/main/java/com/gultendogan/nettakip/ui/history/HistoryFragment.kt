@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.gultendogan.nettakip.R
 import com.gultendogan.nettakip.databinding.FragmentHistoryBinding
 import com.gultendogan.nettakip.domain.uimodel.NetUIModel
+import com.gultendogan.nettakip.ui.history.HistoryViewModel
 import com.gultendogan.nettakip.ui.home.adapter.NetHistoryAdapter
 import com.gultendogan.nettakip.ui.home.adapter.NetItemDecorator
 import com.gultendogan.nettakip.utils.viewBinding
